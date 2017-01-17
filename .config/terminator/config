@@ -1,0 +1,11 @@
+[global_config]
+  borderless = True
+
+[profiles]
+  [[default]]
+     use_system_font = False
+     background_image = None
+     icon_bell = False
+     show_titlebar = False
+     copy_on_selection = True
+     scrollback_infinity = True
