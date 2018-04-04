@@ -6,7 +6,6 @@
 #
 
 # i3 config file (v4)
-#
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
@@ -96,10 +95,10 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
+bindsym $mod+1 workspace 1  
+bindsym $mod+2 workspace 2  
+bindsym $mod+3 workspace 3  
+bindsym $mod+4 workspace 4  
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -108,10 +107,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+1 move container to workspace 1  
+bindsym $mod+Shift+2 move container to workspace 2  
+bindsym $mod+Shift+3 move container to workspace 3  
+bindsym $mod+Shift+4 move container to workspace 4  
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -137,7 +136,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -155,25 +154,31 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 # Audio config
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 
 # Lock screen
 bindsym $mod+x exec '/run/current-system/sw/bin/i3lock-fancy'
+
+# Enable gaps
+gaps inner 5
+gaps outer 5 
+# smart_gaps on
 
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command /run/current-system/sw/bin/i3status
+        status_command /run/current-system/sw/bin/i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output primary
+        font pango:zekton, awesome 10
 }
 
-exec --no-startup-id /run/current-system/sw/bin/feh --bg-scale $HOME/wallpaper.jpg
-
+exec --no-startup-id /run/current-system/sw/bin/feh --bg-scale $HOME/Code/nixosConfig/wallpaper.jpg
+exec --no-startup-id /run/current-system/sw/bin/dunst
 # Keys
 #bindcode 232 exec xbacklight -dec 10
 #bindcode 233 exec xbacklight -inc 10
