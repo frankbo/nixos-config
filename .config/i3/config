@@ -174,7 +174,16 @@ bindsym $mod+r mode "resize"
 bar {
         status_command /run/current-system/sw/bin/i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output primary
-        font pango:zekton, awesome 10
+        font pango:Fira Mono, awesome 10
+        colors {
+           background #fdf6e3
+           statusline #839496
+           separator  #586e75
+           inactive_workspace  #fdf6e3 #fdf6e3 #839496
+           active_workspace   #fdf6e3 #073642 #fdf6e3
+           focused_workspace #586e75 #fdf6e3 #586e75
+           urgent_workspace   #d33682 #073642 #fdf6e3
+        }
 }
 
 exec --no-startup-id /run/current-system/sw/bin/feh --bg-scale $HOME/Code/nixosConfig/wallpaper.jpg
