@@ -30,6 +30,7 @@ in {
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+      ./umlauts.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -202,62 +203,7 @@ in {
     '';
   };
 
-  # nixpkgs.config.packageOverrides = super: {
-  #  xorg = super.xorg // rec {
-  #    xkeyboard_config_us_de = super.pkgs.lib.overrideDerivation super.xorg.xkeyboardconfig (old: {
-  #      patches = [
-  #        (builtins.toFile "us.patch" ''
-  #                    +partial default alphanumeric_keys
-  #                    +xkb_symbols "us_de" {
-  #                    +
-  #                    +    include "us"
-  #                    +    name[Group1] = "US_DE";
-  #                    +
-  #                    +    //             Unmodified       Shift           AltGr            Shift+AltGr
-  #                    +    // home row, left side
-  #                    +    key <AC01> { [ a,               A,              adiaeresis,      Adiaeresis ] };
-  #                    +    key <AC02> { [ o,               O,              odiaeresis,      Odiaeresis ] };
-  #                    +    key <AC04> { [ u,               U,              udiaeresis,      Udiaeresis ] };
-  #                    +};
-  #        '')
-  #      ];
-  #    });
-
-  #      xorgserver = super.pkgs.lib.overrideDerivation super.xorg.xorgserver (old: {
-  #      postInstall = ''
-  #        rm -fr $out/share/X11/xkb/compiled
-  #        ln -s /var/tmp $out/share/X11/xkb/compiled
-  #        wrapProgram $out/bin/Xephyr \
-  #          --set XKB_BINDIR "${xkbcomp}/bin" \
-  #          --add-flags "-xkbdir ${xkeyboard_config_us_de}/share/X11/xkb"
-  #        wrapProgram $out/bin/Xvfb \
-  #          --set XKB_BINDIR "${xkbcomp}/bin" \
-  #          --set XORG_DRI_DRIVER_PATH ${super.mesa}/lib/dri \
-  #          --add-flags "-xkbdir ${xkeyboard_config_us_de}/share/X11/xkb"
-  #        ( # assert() keeps runtime reference xorgserver-dev in xf86-video-intel and others
-  #          cd "$dev"
-  #          for f in include/xorg/*.h; do # */
-  #            sed "1i#line 1 \"${old.name}/$f\"" -i "$f"
-  #          done
-  #        )
-  #      '';
-  #    }); 
-  
-  #    setxkbmap = super.pkgs.lib.overrideDerivation super.xorg.setxkbmap (old: {
-  #      postInstall =
-  #        ''
-  #        mkdir -p $out/share
-  #        ln -sfn ${xkeyboard_config_us_de}/etc/X11 $out/share/X11
-  #        '';
-  #    });
-  
-  #    xkbcomp = super.pkgs.lib.overrideDerivation super.xorg.xkbcomp (old: {
-  #      configureFlags = "--with-xkb-config-root=${xkeyboard_config_us_de}/share/X11/xkb";
-  #    });
-  #  };
-  #};
-
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "17.09";
+  system.stateVersion = "18.03";
 
 }
