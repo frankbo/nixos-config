@@ -186,7 +186,7 @@ bar {
         }
 }
 
-exec --no-startup-id /run/current-system/sw/bin/feh --bg-scale $HOME/Code/nixosConfig/wallpaper.jpg
+exec --no-startup-id /run/current-system/sw/bin/feh --bg-scale $HOME/Code/nixos-config/wallpaper.jpg
 exec --no-startup-id /run/current-system/sw/bin/dunst
 # Keys
 #bindcode 232 exec xbacklight -dec 10
