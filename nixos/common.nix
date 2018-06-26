@@ -14,6 +14,9 @@
     networkmanager.enable = true;
   };
 
+  hardware.pulseaudio.enable = true;
+  powerManagement.enable = true;
+
   # Configure fonts
   fonts = {
     enableCoreFonts = true;
