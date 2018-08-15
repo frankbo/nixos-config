@@ -162,10 +162,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 # Lock screen
 bindsym $mod+x exec '/run/current-system/sw/bin/i3lock-fancy'
 
+# Detect screen
+bindsym $mod+Shift+s exec "~/.config/i3/screen-detection.sh"
+
 # Enable gaps
 gaps inner 5
 gaps outer 5 
-# smart_gaps on
+smart_gaps on
 
 bindsym $mod+r mode "resize"
 
