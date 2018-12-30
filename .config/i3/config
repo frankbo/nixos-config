@@ -32,7 +32,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec /run/current-system/sw/bin/terminator
+bindsym $mod+Return exec /run/current-system/sw/bin/alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -172,23 +172,8 @@ smart_gaps on
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command /run/current-system/sw/bin/i3blocks -c ~/.config/i3/i3blocks.conf
-        tray_output primary
-        font pango:Fira Mono, awesome 10
-        colors {
-           background #fdf6e3
-           statusline #839496
-           separator  #586e75
-           inactive_workspace  #fdf6e3 #fdf6e3 #839496
-           active_workspace   #fdf6e3 #073642 #fdf6e3
-           focused_workspace #586e75 #fdf6e3 #586e75
-           urgent_workspace   #d33682 #073642 #fdf6e3
-        }
-}
-
+# Use Polybar
+exec --no-startup-id /run/current-system/sw/bin/polybar -c $HOME/.config/polybar/config i3bar
 exec --no-startup-id /run/current-system/sw/bin/feh --bg-scale $HOME/Code/nixos-config/wallpaper.jpg
 exec --no-startup-id /run/current-system/sw/bin/dunst
 # Keys

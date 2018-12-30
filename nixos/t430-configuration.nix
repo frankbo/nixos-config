@@ -7,7 +7,6 @@ let
   elmPackages = with pkgs.elmPackages; [
     elm
     elm-format
-    elm-make
   ]; 
 
   hsPackages = with pkgs.haskellPackages; [
@@ -20,10 +19,14 @@ let
     happy
     hlint
     stack
+    stylish-haskell
+    hindent
   ];
 
   gnome3 = with pkgs.gnome3; [
     gnome-screenshot
+    evince
+    eog
   ];
 
 in {
@@ -43,7 +46,14 @@ in {
     preLVM = true;
   } ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: rec {
+      polybar = pkgs.polybar.override {
+        i3Support = true;
+      };
+    };
+  };
 
   networking = {
     hostName = "nixos";
@@ -68,20 +78,32 @@ in {
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
-      fira-mono
-      font-awesome-ttf
+      hack-font
       anonymousPro
       corefonts
       dejavu_fonts
+      emojione
+      fira
+      fira-code
+      fira-code-symbols
+      fira-mono
       freefont_ttf
       liberation_ttf
+      # nerdfonts
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
       source-code-pro
+      source-sans-pro
       terminus_font
       ttf_bitstream_vera
       ubuntu_font_family
+      powerline-fonts
+      font-awesome-ttf
+      siji
     ];
   };
-
+  
   # Select internationalisation properties.
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -99,7 +121,7 @@ in {
     wget
     vim
     git
-    i3 i3status i3lock-fancy i3blocks-gaps feh
+    i3 i3status i3lock-fancy i3blocks-gaps polybar feh
     acpi
     rofi
     tmux
@@ -119,9 +141,6 @@ in {
     chromium
     firefox
 
-    # PDF reader 
-    evince
-
     # Notification
     dunst
 
@@ -132,6 +151,7 @@ in {
     grobi
 
     terminator
+    alacritty
     weechat
     emacs
     xlibs.xbacklight
@@ -152,7 +172,7 @@ in {
   users.extraUsers.frank = {
     group = "users";
     extraGroups = [
-      "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal"
+      "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "docker"
     ];
     createHome = true;
     home = "/home/frank";
@@ -172,7 +192,7 @@ in {
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # networkeng.firewall.enable = false;
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -202,6 +222,7 @@ in {
       EndSection
     '';
   };
+  virtualisation.docker.enable = true;
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "18.03";
