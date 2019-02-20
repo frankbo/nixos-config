@@ -3,12 +3,14 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  unstable = import <nixpkgs-unstable> {config = { allowUnfree = true; };};
+in
 {
   imports =
     [ # Include the results of the hardware scan.
       <nixos-hardware/lenovo/thinkpad/t480s>
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       /home/frank/Code/nixos-config/nixos/umlauts.nix
     ];
   
@@ -59,6 +61,7 @@
   environment.systemPackages = with pkgs; [
     wget 
     vim
+    emacs
     which
     htop
     powertop
@@ -77,7 +80,7 @@
     ranger
     slack
     spotify
-    zoom-us
+    unstable.zoom-us
     libreoffice
     flameshot
 
