@@ -338,7 +338,7 @@ full-at = 98
 format-charging = <animation-charging> <label-charging>
 format-charging-underline =
 
-format-discharging = <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline =
 
 format-full-prefix = " "
