@@ -11,6 +11,7 @@
       ../modules/i3.nix
       ../modules/common-settings.nix
       ../modules/virtualization.nix
+      ../modules/games.nix
     ];
   
   boot.kernelPackages = pkgs.linuxPackages_latest;
