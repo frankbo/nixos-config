@@ -43,7 +43,7 @@ in
     grobi
 
     # Screenshots
-    unstable.flameshot
+    # unstable.flameshot
 
     # Video
     vlc

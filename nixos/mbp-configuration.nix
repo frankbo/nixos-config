@@ -1,3 +1,5 @@
+## This config is deprecated and no longer maintained ##
+
 { config, pkgs, ... }:
 
 {
