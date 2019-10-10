@@ -65,7 +65,7 @@ source "${pkgs.fzf}/share/fzf/completion.zsh"
 # User configuration
 
 # -------- programs not found on linux with this line enabled. On OSX it works fine.
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/frank/mutable_node_modules/bin:/Users/frank/development/flutter/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/mutable_node_modules/bin:$HOME/development/flutter/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -85,7 +85,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/frank/mutable_n
 # For a full list of active aliases, run `alias`.
 # Set nix environment on every start.
 
-if [ -e /Users/frank/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/frank/.nix-profile/etc/profile.d/nix.sh; fi
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 
 export TERM=xterm-256color 
 export GOPATH=''$HOME/Code/golang
