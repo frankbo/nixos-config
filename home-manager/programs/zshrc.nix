@@ -52,10 +52,9 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# FZF configuration
-
 source ''$ZSH/oh-my-zsh.sh
 
+# FZF config
 export FZF_DEFAULT_COMMAND='${pkgs.ripgrep}/bin/rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -65,7 +64,7 @@ source "${pkgs.fzf}/share/fzf/completion.zsh"
 # User configuration
 
 # -------- programs not found on linux with this line enabled. On OSX it works fine.
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/mutable_node_modules/bin:$HOME/development/flutter/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin:$HOME/mutable_node_modules/bin:$HOME/development/flutter/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

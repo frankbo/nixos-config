@@ -16,12 +16,11 @@
 
   home.packages = with pkgs; [
     nodejs-12_x
-    neovim
-    vim
     nmap
     wget
     dirb
     htop
+    ngrok
   ];
 
   # Let Home Manager install and manage itself.
