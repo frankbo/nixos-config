@@ -255,14 +255,7 @@ nnoremap <leader>ts :TestFile<CR>
 
 
 " NerdTree
-nnoremap <Leader>y :NERDTreeFind<CR>
-nnoremap <Leader>n :NERDTreeToggle<CR>
-
-" Navigate between splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <Leader>n :NERDTreeFind<CR>
 
 " Nerdcomment
 let g:NERDCreateDefaultMappings = 0
@@ -291,8 +284,8 @@ nmap <silent> gr <Plug>(coc-references)
 " Source init.vim from somewhere else: :so $MYVIMRC
 "
 " Nerdtree
-" toggle open close with: space + n or ctrl+n
-" nerdtree find open with space + y, close with q
+" toggle open close with: ctrl+n
+" nerdtree find open with space + n, close with q
 "
 " Buffers
 " space + ;
@@ -310,6 +303,10 @@ nmap <silent> gr <Plug>(coc-references)
 "
 " Jump marks 
 " Jump to previous ctrl + o for older jumps and ctrl + i for next jumps
+" 
+" Jump between splits with ctrl+w ctrl+j or k 
+"
+" Pick next or previous in dropdown with ctrl + n and ctrl + p. Select with ctrl + y
 "
 " GitGutter
 " preview, stage, and undo hunks with <leader>hp, <leader>hs, and <leader>hu 
