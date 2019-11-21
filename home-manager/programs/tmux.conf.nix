@@ -37,6 +37,9 @@ setw -g window-status-current-format "#[bg=brightmagenta]#[fg=colour8] #I #[fg=c
 # Info on left (I don't have a session display for now)
 set -g status-left '''
 
+# Return to insert mode in vim faster
+set-option -g escape-time 1
+
 # loud or quiet?
 set-option -g visual-activity off
 set-option -g visual-bell off
