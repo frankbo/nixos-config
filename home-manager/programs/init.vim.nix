@@ -8,6 +8,9 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'tpope/vim-sensible'
 
+" Editor config Plugin
+Plug 'editorconfig/editorconfig-vim'
+
 " Oceanic Theme
 Plug 'mhartington/oceanic-next'
 
