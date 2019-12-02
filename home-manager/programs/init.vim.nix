@@ -92,6 +92,10 @@ set number
 set ruler
 set wrap
 
+" Set tab to 2 spaces
+set tabstop=2 shiftwidth=2 expandtab
+
+
 " not for haskell
 let g:polyglot_disabled = ['haskell']
 
