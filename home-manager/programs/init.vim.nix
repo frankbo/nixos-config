@@ -51,7 +51,6 @@ Plug 'scrooloose/nerdcommenter'
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
-Plug 'alx741/vim-hindent'
 
 " TS
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
@@ -310,6 +309,7 @@ nmap <silent> gr <Plug>(coc-references)
 "
 " Jump marks 
 " Jump to previous ctrl + o for older jumps and ctrl + i for next jumps
+" Jump to implementation g + i Jump to definition g + d Jump to Reference g + r
 " 
 " Jump between splits with ctrl+w ctrl+j or k 
 "
